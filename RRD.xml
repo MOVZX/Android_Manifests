@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="zx2c4"
+          fetch="https://git.zx2c4.com/"
+          revision="refs/heads/master" />
+
+  <project name="LineageOS/android_packages_resources_devicesettings"
+           path="packages/resources/devicesettings"
+           remote="github" />
+
+  <!-- Gemini -->
+  <project name="LineageOS/android_device_xiaomi_gemini"
+           path="device/xiaomi/gemini"
+           remote="github" />
+  <project name="LineageOS/android_device_xiaomi_msm8996-common"
+           path="device/xiaomi/msm8996-common"
+           remote="github" />
+  <project name="LineageOS/android_kernel_xiaomi_msm8996"
+           path="kernel/xiaomi/msm8996"
+           remote="github" />
+  <project name="TheMuppets/proprietary_vendor_xiaomi"
+           path="vendor/xiaomi"
+           remote="github" />
+
+  <!-- WireGuard -->
+  <project name="android_kernel_wireguard"
+           path="kernel/wireguard"
+           remote="zx2c4"
+           sync-s="true" />
+
+</manifest>
