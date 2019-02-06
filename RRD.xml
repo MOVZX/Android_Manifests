@@ -1,57 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <!-- Remotes -->
+  <remote name="dkr"
+          fetch="https://github.com/Darkness-Remix"
+          revision="refs/heads/pie" />
+  <remote name="dkd"
+          fetch="https://github.com/Darkness-Devices"
+          revision="refs/heads/lineage-16.0" />
   <remote name="zx2c4"
           fetch="https://git.zx2c4.com/"
           revision="refs/heads/master" />
 
-  <!-- Gemini -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Gemini"
-           path="device/xiaomi/gemini"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8996-Common"
-           path="device/xiaomi/msm8996-common"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Kernel_Xiaomi_MSM8996"
-           path="kernel/xiaomi/msm8996"
-           remote="github" />
+  <!-- Removal/Cleanup -->
+  <remove-project name="android_system_core" />
+  <remove-project name="android_vendor_resurrection" />
 
-  <!-- Kenzo -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Kenzo"
-           path="device/xiaomi/kenzo"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8956-Common"
-           path="device/xiaomi/msm8956-common"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Kernel_Xiaomi_MSM8956"
-           path="kernel/xiaomi/msm8956"
-           remote="github" />
-
-  <!-- Dipper -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Dipper"
-           path="device/xiaomi/dipper"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8998-Common"
-           path="device/xiaomi/msm8998-common"
-           remote="github" />
-  <project name="Darkness-Devices/Android_Kernel_Xiaomi_MSM8998"
-           path="kernel/xiaomi/msm8998"
-           remote="github" />
-
-  <!-- Vendors -->
-  <project name="Darkness-Devices/Proprietary_Vendor_Xiaomi"
-           path="vendor/xiaomi"
-           remote="github" />
-
-  <!-- Lineage OS -->
-  <project name="LineageOS/android_packages_resources_devicesettings"
-           path="packages/resources/devicesettings"
-           remote="github" />
+  <!-- RRD -->
+  <project name="System_Core"
+           path="system/core"
+           remote="dkr" />
+  <project name="Vendor_Resurrection"
+           path="vendor/rr"
+           remote="dkr" />
 
   <!-- WireGuard -->
   <project name="android_kernel_wireguard"
            path="kernel/wireguard"
            remote="zx2c4"
            sync-s="true" />
+
+  <!-- Dipper -->
+  <project name="Darkness-Devices/Android_Device_Xiaomi_Dipper"
+           path="device/xiaomi/dipper"
+           remote="rrd" />
+  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8998-Common"
+           path="device/xiaomi/msm8998-common"
+           remote="rrd" />
+  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8998"
+           path="kernel/xiaomi/msm8998"
+           remote="github"
+           revision="pie-eas" />
+
+  <!-- Kenzo -->
+  <project name="Darkness-Devices/Android_Device_Xiaomi_Kenzo"
+           path="device/xiaomi/kenzo"
+           remote="rrd" />
+  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8956-Common"
+           path="device/xiaomi/msm8956-common"
+           remote="rrd" />
+  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8956"
+           path="kernel/xiaomi/msm8956"
+           remote="github"
+           revision="pie-hmp" />
+
+  <!-- Gemini -->
+  <project name="Darkness-Devices/Android_Device_Xiaomi_Gemini"
+           path="device/xiaomi/gemini"
+           remote="rrd" />
+  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8996-Common"
+           path="device/xiaomi/msm8996-common"
+           remote="rrd" />
+  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8996"
+           path="kernel/xiaomi/msm8996"
+           remote="github"
+           revision="darkness-dev" />
+
+  <!-- Lineage OS -->
+  <project name="LineageOS/android_packages_resources_devicesettings"
+           path="packages/resources/devicesettings"
+           remote="github"
+           revision="lineage-16.0" />
+
+  <!-- Vendors -->
+  <project name="Darkness-Devices/Android_Vendor_Xiaomi"
+           path="vendor/xiaomi"
+           remote="rrd" />
 
 </manifest>
