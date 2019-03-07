@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <!-- Remotes -->
+<!-- Remotes -->
   <remote name="dkr"
           fetch="https://github.com/Darkness-Remix"
-          revision="refs/heads/pie" />
+          revision="refs/heads/tmp" />
   <remote name="dkd"
           fetch="https://github.com/Darkness-Devices"
           revision="refs/heads/lineage-16.0" />
@@ -13,58 +13,45 @@
           revision="refs/heads/master" />
 
   <!-- Removal/Cleanup -->
+  <remove-project name="android_build" />
+  <remove-project name="android_frameworks_base" />
+  <remove-project name="LineageOS/android_external_skia" />
+  <remove-project name="frameworks_native" />
   <remove-project name="android_system_core" />
   <remove-project name="android_vendor_resurrection" />
+  <remove-project name="Resurrection_packages_apps_Settings" />
 
   <!-- RRD -->
-  <project name="System_Core"
+  <project name="Android_Build"
+           path="build/make"
+           remote="dkr" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project name="Android_External_SKIA"
+           path="external/skia"
+           groups="pdk,qcom_msm8x26"
+           remote="dkr" />
+  <project name="Android_Frameworks_Base"
+           path="frameworks/base"
+           remote="dkr" />
+  <project name="Android_Frameworks_Native"
+           path="frameworks/native"
+           remote="dkr" />
+  <project name="Android_System_Core"
            path="system/core"
            remote="dkr" />
-  <project name="Vendor_Resurrection"
+  <project name="Android_Vendor_RR"
            path="vendor/rr"
            remote="dkr" />
-
-  <!-- WireGuard -->
-  <project name="android_kernel_wireguard"
-           path="kernel/wireguard"
-           remote="zx2c4"
-           sync-s="true" />
-
-  <!-- Dipper -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Dipper"
-           path="device/xiaomi/dipper"
-           remote="rrd" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8998-Common"
-           path="device/xiaomi/msm8998-common"
-           remote="rrd" />
-  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8998"
-           path="kernel/xiaomi/msm8998"
-           remote="github"
-           revision="pie-eas" />
-
-  <!-- Kenzo -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Kenzo"
-           path="device/xiaomi/kenzo"
-           remote="rrd" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8956-Common"
-           path="device/xiaomi/msm8956-common"
-           remote="rrd" />
-  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8956"
-           path="kernel/xiaomi/msm8956"
-           remote="github"
-           revision="pie-hmp" />
-
-  <!-- Gemini -->
-  <project name="Darkness-Devices/Android_Device_Xiaomi_Gemini"
-           path="device/xiaomi/gemini"
-           remote="rrd" />
-  <project name="Darkness-Devices/Android_Device_Xiaomi_MSM8996-Common"
-           path="device/xiaomi/msm8996-common"
-           remote="rrd" />
-  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8996"
-           path="kernel/xiaomi/msm8996"
-           remote="github"
-           revision="darkness-dev" />
+  <project name="Android_Packages_Apps_Settings"
+           path="packages/apps/Settings"
+           remote="dkr" />
 
   <!-- Lineage OS -->
   <project name="LineageOS/android_packages_resources_devicesettings"
@@ -72,9 +59,22 @@
            remote="github"
            revision="lineage-16.0" />
 
-  <!-- Vendors -->
-  <project name="Darkness-Devices/Android_Vendor_Xiaomi"
+  <!-- WireGuard -->
+  <project name="android_kernel_wireguard"
+           path="kernel/wireguard"
+           remote="zx2c4"
+           sync-s="true" />
+
+  <!-- Gemini -->
+  <project name="Android_Device_Xiaomi_Gemini"
+           path="device/xiaomi/gemini"
+           remote="dkd" />
+  <project name="MOVZX/Android_Kernel_Xiaomi_MSM8996"
+           path="kernel/xiaomi/msm8996"
+           remote="private"
+           revision="lineage-16.0" />
+  <project name="Proprietary_Vendor_Xiaomi"
            path="vendor/xiaomi"
-           remote="rrd" />
+           remote="dkd" />
 
 </manifest>
